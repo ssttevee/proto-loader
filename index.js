@@ -52,7 +52,7 @@ module.exports = function (source) {
 
 	var data = readProto(source, options);
 	var builder = ProtoBuf.newBuilder(protoUtil.getBuilderOptions(options, 'using'));
-	builder['import'](data);
+	builder['import'](data, this.resourcePath);
 
 	return 'module.exports = ' + protoTarget(builder, options) + ';';
 };
